@@ -1,7 +1,7 @@
 import { View, StyleSheet, ImageBackground, Image, Text, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import Constants  from 'expo-constants'
-import { MaterialCommunityIcons, Foundation } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Foundation, MaterialIcons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
 import * as Linking from 'expo-linking';
 import  Animated, { SlideInDown, SlideInUp, SlideInLeft, FadeIn, FadeInLeft } from 'react-native-reanimated';
@@ -39,12 +39,16 @@ export default function Home() {
               <Card image={require('../assets/salata-roka.jpeg')} title={'Σαλάτα Ρόκα'} price={'11.00'}/>
             </ScrollView>
             </Animated.View>
+            <View style={styles.poweredbyContainer}>
+            <Text style={styles.poweredbyText}>Powered By</Text>
+            <Image source={require("../assets/header.logo.thelosouvlakia.png")} style={styles.poweredbyLogo} />
+            </View>
             </View>
            
           <TouchableOpacity style={styles.orderButton} onPress={_handlePressButtonAsync} >
           <Animated.View entering={FadeIn.duration(2000)} >
             
-            <MaterialCommunityIcons name="border-color" size={46} color="#fff" />
+            <MaterialIcons name="delivery-dining" size={46} color="#fff" />
           </Animated.View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.mapButton} onPress={()=>Linking.openURL('https://www.google.com/maps/dir//%CE%A0%CE%AF%CF%84%CE%B1+%CE%9A%CE%B1%CE%BB%CE%B1%CE%BC%CE%AC%CE%BA%CE%B9+Al.+Papanastasiou+6+Egaleo+122+41/@37.9909822,23.6820248,17z/data=!4m5!4m4!1m0!1m2!1m1!1s0x14a1bcbae2bb33c9:0xbb9264ad3cf15f3e')} >
@@ -161,5 +165,21 @@ const styles = StyleSheet.create({
   },
   slider: {
     marginTop: 20
+  },
+  poweredbyContainer: {
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginTop: 40
+  },
+  poweredbyText: {
+    color: '#fff',
+    textShadowColor: '#000',
+    textShadowOffset: {x:5, y:15},
+    marginBottom: 5
+  },
+  poweredbyLogo: {
+    width: 140,
+    resizeMode: 'contain'
+
   }
 })

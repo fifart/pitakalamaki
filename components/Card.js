@@ -16,8 +16,8 @@ function Card({image, title, price}) {
 
 const styles = StyleSheet.create({
     cardContainer: {
-        width: 200,
-        height: 140,
+        width: 300,
+        height: 200,
         borderRadius: 20,
         backgroundColor: '#000',
         overflow: 'hidden',
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         paddingTop: 5,
         fontWeight: '700',
         color: '#fff',
-        fontSize: 11
+        fontSize: 13
     }
 })
 
