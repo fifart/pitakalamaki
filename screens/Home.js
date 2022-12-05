@@ -4,6 +4,7 @@ import Constants  from 'expo-constants'
 import { MaterialCommunityIcons, Foundation } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
 import * as Linking from 'expo-linking';
+import  Animated, { SlideInDown, SlideInUp, SlideInLeft, FadeIn } from 'react-native-reanimated';
 
 export default function Home() {
 
@@ -20,22 +21,24 @@ export default function Home() {
         source = {require("../assets/p5.jpg")} 
         style = { styles.bgimage }
         >
-          <View style={styles.container}> 
-              <Image source={require("../assets/logo_pitakalamaki.png")} style={styles.logo} />
-              <Text style={styles.welcome}>Υπέροχες γεύσεις για όλη την ημέρα!</Text>
-
+          <View style={styles.container}>
+            
+              <Animated.Image source={require("../assets/logo_pitakalamaki.png")} style={styles.logo} />
+            
+            <View>
+              <Animated.Text entering={FadeIn.duration(4000)} style={styles.welcome}>Υπέροχες γεύσεις για όλη την ημέρα!</Animated.Text>
+            </View> 
           </View>
           <TouchableOpacity style={styles.orderButton} onPress={_handlePressButtonAsync} >
-          <View>
+          <Animated.View entering={FadeIn.duration(2000)} >
             
             <MaterialCommunityIcons name="border-color" size={46} color="#fff" />
-          </View>
+          </Animated.View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.phoneButton} onPress={()=>Linking.openURL('tel:+302105911151')} >
-          <View>
-            
+          <Animated.View entering={FadeIn.duration(1600)} >
           <Foundation name="telephone" size={46} color="#000" />
-          </View>
+          </Animated.View>
           </TouchableOpacity>
         </ImageBackground>
     
