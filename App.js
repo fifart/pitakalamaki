@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Home from './screens/Home';
-import Card from './components/Card';
+import { StatusBar } from 'expo-status-bar';
 
 
 export default function App() {
@@ -8,8 +8,10 @@ export default function App() {
  
 
   return (
-  
-      <Home />
+    <>
+    <StatusBar style="auto" />
+    <Home />
+    </>
     
       
   );
