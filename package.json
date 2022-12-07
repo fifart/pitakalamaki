@@ -9,10 +9,13 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo-google-fonts/open-sans": "^0.2.2",
     "@expo/webpack-config": "^0.17.2",
     "@react-navigation/native": "^6.0.16",
     "expo": "~47.0.8",
+    "expo-app-loading": "~2.1.1",
     "expo-constants": "^14.0.2",
+    "expo-font": "~11.0.1",
     "expo-linking": "~3.2.3",
     "expo-status-bar": "~1.4.2",
     "expo-web-browser": "~12.0.0",

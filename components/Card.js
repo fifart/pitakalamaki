@@ -3,6 +3,8 @@ import {View, Text, Image, StyleSheet, SafeAreaView} from 'react-native';
 
 
 function Card({image, title, price}) {
+    
+
     return (
         
         <View style={styles.cardContainer}>
@@ -16,16 +18,16 @@ function Card({image, title, price}) {
 
 const styles = StyleSheet.create({
     cardContainer: {
-        width: 300,
-        height: 200,
-        borderRadius: 20,
+        width: 200,
+        height: 120,
         backgroundColor: '#000',
         overflow: 'hidden',
         alignItems:'center',
-        shadowColor: '#c3c3c3',
-        shadowOffset: { x:10, y:10},
-        shadowRadius: 20,
-        shadowOpacity: 0.9,
+        shadowColor: '#000',
+        shadowOffset: { width: 24, height: 26  },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 30,
         opacity: 1,
         margin: 10
     }
@@ -39,8 +41,8 @@ const styles = StyleSheet.create({
     cardTitle: {
         paddingTop: 5,
         fontWeight: '700',
+        fontSize: 13,
         color: '#fff',
-        fontSize: 13
     }
 })
 
