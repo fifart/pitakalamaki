@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
         shadowColor: '#000',
         shadowOpacity: 0.9,
         shadowOffset: { x:10, y:10},
-        elevation: 20
+        elevation: 20,
+        marginBottom: 10
     
       },
       appButtonView: {
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
       },
       
     appButtonText: {
-        fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
+      fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Arial',
       textAlign: 'center',
       fontWeight: '500',
       color: '#fff',
@@ -47,5 +48,6 @@ const styles = StyleSheet.create({
       shadowColor: '#000',
       shadowOpacity: 0.9,
       shadowOffset: { x:10, y:10},
+      fontSize: 13
     },
 })

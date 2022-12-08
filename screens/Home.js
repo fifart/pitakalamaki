@@ -1,4 +1,4 @@
-import { View, StyleSheet, ImageBackground, Image, ScrollView, Platform } from 'react-native'
+import { View, StyleSheet, ImageBackground, Image, ScrollView, Platform, FlatList } from 'react-native'
 import React, { useState, useCallback } from 'react'
 import Constants  from 'expo-constants'
 import { MaterialCommunityIcons, Foundation, MaterialIcons, EvilIcons, AntDesign, Entypo } from '@expo/vector-icons';
@@ -11,6 +11,7 @@ import Card from '../components/Card';
 import AppButton from '../components/AppButton';
 import PoweredBy from '../components/PoweredBy';  
 import SocialButton from '../components/SocialButton';
+import menu from '../assets/menu';
 
 export default function Home() {
 
@@ -21,10 +22,7 @@ export default function Home() {
     let orderUrl = await WebBrowser.openBrowserAsync('https://online.thelosouvlakia.gr/pitakalamaki');
     setOrder(orderUrl);
   };
-
   
-  
-
   return (
     
       <ImageBackground
@@ -41,21 +39,22 @@ export default function Home() {
              
             <Animated.View entering={FadeInLeft} style={styles.slider}>
             <Animated.Text entering={FadeIn.duration(4000)} style={styles.featured}>Αγαπημένα Πιάτα</Animated.Text>
-            <ScrollView horizontal>
-              <Card image={require('../assets/poikilia-orektikon.jpeg')} title={'Ποικιλία Ορεκτικών'} price={'6.00'}/>
-              <Card image={require('../assets/psomakia-me-kalampokalevro.jpeg')} title={'Ψωμάκια με Καλ/λευρο'} price={'7.90'}/>
-              <Card image={require('../assets/salata-roka.jpeg')} title={'Σαλάτα Ρόκα'} price={'11.00'}/>
-              <Card image={require('../assets/poikilia-orektikon.jpeg')} title={'Ποικιλία Ορεκτικών'} price={'6.00'}/>
-              <Card image={require('../assets/psomakia-me-kalampokalevro.jpeg')} title={'Ψωμάκια με Καλ/λευρο'} price={'7.90'}/>
-              <Card image={require('../assets/salata-roka.jpeg')} title={'Σαλάτα Ρόκα'} price={'11.00'}/>
-            </ScrollView>
+            
+            <FlatList
+              horizontal = {true}
+              data = {menu}
+              keyExtractor = {menuitem => menuitem.id.toString()}
+              renderItem = { 
+                ({item}) => <Card image={item.menuImage} title={item.menuTitle} price={item.menuPrice} />
+              }
+              />
             </Animated.View>
            </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-between' , marginTop: 20 }}>
           <AppButton 
           icon={<Foundation name="telephone" size={46} color="#000" />} 
           onPress={()=>Linking.openURL('tel:+302105911151')}
-          buttonText={'Άμμεση Κλήση'}
+          buttonText={'Άμεση Κλήση'}
           />
           <AppButton 
           icon={<MaterialCommunityIcons name="map-marker" size={46} color="black" />} 
@@ -84,7 +83,7 @@ export default function Home() {
             />
           </View>
 
-          <View style={{flexDirection: 'row', justifyContent: 'center' , marginTop: 20, position: 'absolute', bottom: 10 }}>
+          <View style={{flexDirection: 'row', justifyContent: 'center' , marginTop: 50, position: 'absolute', bottom: 10 }}>
             <PoweredBy />
           </View>
           
@@ -164,7 +163,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     textAlign: 'center',
     color: '#fff',
-    marginTop: 30,
+    marginTop: 20,
     shadowColor: '#000',
     shadowOffset: {width:1, height: 2},
     shadowOpacity: 1,
