@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, SafeAreaView} from 'react-native';
+import {View, Text, Image, StyleSheet, SafeAreaView, Platform} from 'react-native';
 
 
 function Card({image, title, price}) {
@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     }
     ,
     cardTitle: {
+        fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
         paddingTop: 5,
         fontWeight: '700',
         fontSize: 13,

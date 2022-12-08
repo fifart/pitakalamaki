@@ -1,4 +1,4 @@
-import { View, StyleSheet, ImageBackground, Image, ScrollView } from 'react-native'
+import { View, StyleSheet, ImageBackground, Image, ScrollView, Platform } from 'react-native'
 import React, { useState, useCallback } from 'react'
 import Constants  from 'expo-constants'
 import { MaterialCommunityIcons, Foundation, MaterialIcons, EvilIcons, AntDesign, Entypo } from '@expo/vector-icons';
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
+    width: '100%'
   } ,
   container: {
     // marginTop: Constants.statusBarHeight+10,
@@ -126,6 +127,7 @@ const styles = StyleSheet.create({
   } ,
 
   welcome: {
+    fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
     fontSize: 22,
     fontWeight: '700',
     textAlign: 'center',
@@ -136,12 +138,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 1,
     elevation: 20,
-    fontFamily: 'monospace',
     width: 300,
     alignSelf: 'center',
     marginBottom: 20,
   },
   featured: {
+    fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
     fontSize: 18,
     fontWeight: '700',
     textAlign: 'center',
@@ -157,6 +159,7 @@ const styles = StyleSheet.create({
   },
 
   socials: {
+    fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
     fontSize: 20,
     fontWeight: '700',
     textAlign: 'center',

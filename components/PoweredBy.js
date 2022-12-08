@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, Platform } from 'react-native'
 import React from 'react'
 
 export default function PoweredBy() {
@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
       },
       poweredbyText: {
+        fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
         color: '#fff',
         textShadowColor: '#000',
         textShadowOffset: {x:5, y:15},

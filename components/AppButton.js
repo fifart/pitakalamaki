@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Platform } from 'react-native'
 import React from 'react'
 import  Animated, { SlideInDown, SlideInUp, SlideInLeft, FadeIn, FadeInLeft } from 'react-native-reanimated';
 
@@ -39,11 +39,12 @@ const styles = StyleSheet.create({
       },
       
     appButtonText: {
+        fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
       textAlign: 'center',
       fontWeight: '500',
       color: '#fff',
       elevation: 1,
-      shadowColor: '#c3c3c3',
+      shadowColor: '#000',
       shadowOpacity: 0.9,
       shadowOffset: { x:10, y:10},
     },
